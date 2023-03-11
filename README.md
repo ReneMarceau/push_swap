@@ -14,7 +14,7 @@
 
 ## Étapes
 
-- Parsing de l'entrée standard et mettre les nombres dans la Stack A si il n'y a aucune erreur detectée (doubly-circular linked list)
+- Parsing de l'entrée standard et mettre les nombres dans la Stack A (doubly-circular linked list)
 
 - Comprendre comment accéder aux valeurs dans la "doubly-circular linked list"
 
@@ -28,5 +28,5 @@
 
 ## Choses à faire
 
-- [ ]Faire une recherche sur Insertion Sort
-- [ ]Faire une recherche sur Radix sort
+- [ ] Faire une recherche sur Insertion Sort
+- [ ] Faire une recherche sur Radix sort
