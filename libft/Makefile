@@ -6,7 +6,7 @@
 #    By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 11:15:42 by rmarceau          #+#    #+#              #
-#    Updated: 2022/11/28 13:17:22 by rmarceau         ###   ########.fr        #
+#    Updated: 2023/03/11 18:23:06 by rmarceau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ AR 			= ar crs
 
 SRCS_PATH 	= src/
 
-FTIS 	=  alpha digit alnum ascii print
+FTIS 	=  alpha digit alnum ascii print number
 FTMEM 	= bzero memset memcpy memmove memchr memcmp calloc
 FTSTR 	= len lcpy lcat chr rchr ncmp nstr dup join trim mapi iteri
 FTTO 	= toupper tolower atoi itoa

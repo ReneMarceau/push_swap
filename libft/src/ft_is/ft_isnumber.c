@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isnumber.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 16:40:56 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/11 19:00:15 by rmarceau         ###   ########.fr       */
+/*   Created: 2023/03/11 18:16:30 by rmarceau          #+#    #+#             */
+/*   Updated: 2023/03/11 18:21:26 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/libft.h"
 
-int	main(int argc, char **argv)
+int	ft_isnumber(char *str)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	// Test display
-	int		i;
+	size_t	i;
 
 	i = 0;
-	if (argc >= 2)
+	while (str[i])
 	{
-		stack_a = fill_stack(argc, argv);
-		if (!stack_a)
-		{
-			ft_putendl_fd(ERROR, 2);
-			exit(EXIT_FAILURE);
-		}
-		stack_b = NULL;
-		// Test display
-		while (i < 4)
-		{
-			ft_printf("%d\n", stack_a->data);
-			stack_a = stack_a->next;
-			i++;
-		}
+		if (!ft_isdigit(str[i++]))
+			return (0);
 	}
-	return (0);
+	return (1);
 }

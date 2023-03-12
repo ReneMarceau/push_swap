@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 13:05:05 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/11 15:23:26 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/11 18:55:47 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,26 @@ void	lstadd_front(t_stack **node_first, t_stack **node_last, t_stack *new)
 	*node_last = new;
 }
 
-t_stack	*fill_stack(char **args, int len)
+t_stack	*fill_stack(int argc, char **argv)
 {
 	t_stack	*stack;
+	int		*tab;
+	int		len;
 
 	stack = NULL;
-	while (len >= 0)
+	if (argc == 2)
+		tab = quotes_to_tab(argv);
+	else
+		tab = args_to_tab(argc, argv);
+	if (!tab)
+		return (NULL);
+	len = count_arg(tab);
+	while (--len >= 0)
 	{
 		if (!stack)
-			stack = lstnew(ft_atoi(args[len]));
+			stack = lstnew(tab[len]);
 		else
-			lstadd_front(&stack, &stack->prev, lstnew(ft_atoi(args[len])));
-		len--;
+			lstadd_front(&stack, &stack->prev, lstnew(tab[len]));
 	}
 	return (stack);
 }

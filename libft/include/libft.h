@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:14:13 by rmarceau          #+#    #+#             */
-/*   Updated: 2022/11/28 13:06:14 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/11 18:22:43 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_isnumber(char *str);
 
 // ------------------------------ Length ------------------------------------
 size_t	ft_strlen(const char *s);
