@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 13:05:05 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/11 18:55:47 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/13 21:20:32 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,13 @@ t_stack	*fill_stack(int argc, char **argv)
 		tab = quotes_to_tab(argv);
 	else
 		tab = args_to_tab(argc, argv);
-	if (!tab)
+	if (!tab || !is_repeat(tab))
 		return (NULL);
-	len = count_arg(tab);
+	if (is_sorted(tab))
+		exit(EXIT_SUCCESS);
+	// count_arg compte mal si il y a un 0
+	len = (count_arg(tab));
+	ft_printf("len: %d\n", len);
 	while (--len >= 0)
 	{
 		if (!stack)

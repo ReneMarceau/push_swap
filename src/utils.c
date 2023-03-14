@@ -6,11 +6,12 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:20:23 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/11 18:52:16 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/13 21:19:56 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+#include <string.h>
 
 size_t	count_arg(int *tab)
 {
@@ -62,7 +63,10 @@ int	*args_to_tab(int argc, char **argv)
 	while ((int)++i < argc)
 	{
 		if (ft_isnumber(argv[i]))
-			tab[j++] = ft_atoi(argv[i]);
+		{
+			tab[j] = ft_atoi(argv[i]);
+			j++;
+		}
 		else
 			return (NULL);
 	}

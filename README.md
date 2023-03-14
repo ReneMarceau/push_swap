@@ -33,6 +33,7 @@
 - [x] Parsing avec arguments entre "" et sans. Ex:"1 2 3 ..." et 1 2 3 ...
 - [x] Parsing même si trop d'espaces: "1 2          3" ou 1 2       3
 - [x] Vérifier si tous les arguments sont des nombres entier
-- [ ] Vérifier qu'il n'y a aucun doublon
-- [ ] Vérifier que les arguments ne soient pas déjà rangés si oui ne rien faire
+- [x] Vérifier qu'il n'y a aucun doublon
+- [x] Vérifier que les arguments ne soient pas déjà rangés si oui ne rien faire
+- [ ] À corriger: Programme ne rentre pas les informations après un 0 (À cause de count arg qui arrete de compter dès qu'il voit un 0)
 

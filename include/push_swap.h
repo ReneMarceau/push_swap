@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:38:12 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/11 18:53:29 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/13 21:19:46 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ t_stack	*fill_stack(int argc, char **argv);
 void	lstadd_front(t_stack **node_first, t_stack **node_last, t_stack *new);
 int		*args_to_tab(int argc, char **argv);
 int		*quotes_to_tab(char **argv);
+int		is_repeat(int *tab);
+int		is_sorted(int *tab);
 size_t	count_arg(int *tab);
 
 #endif
