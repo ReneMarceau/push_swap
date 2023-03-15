@@ -6,46 +6,50 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:38:40 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/13 21:24:11 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:23:18 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	is_repeat(int *tab)
+//Check if there are no repeated numbers inside the array
+int	is_repeat(int *tab, int size)
 {
 	int	i;
 	int	j;
 
-	i = -1;
-	while (tab[++i])
+	i = 0;
+	while (i < size)
 	{
 		j = i + 1;
-		while (tab[j])
+		while (j < size)
 		{
 			if (tab[i] == tab[j])
 				return (0);
 			j++;
 		}
+		i++;
 	}
 	return (1);
 }
 
-int	is_sorted(int *tab)
+//Check if the array is already sorted
+int	is_sorted(int *tab, int size)
 {
 	int	i;
 	int	j;
 
-	i = -1;
-	while (tab[++i])
+	i = 0;
+	while (i < size)
 	{
 		j = i + 1;
-		while (tab[j])
+		while (j < size)
 		{
 			if (tab[i] > tab[j])
 				return (0);
 			j++;
 		}
+		i++;
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 #    By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 16:45:42 by rmarceau          #+#    #+#              #
-#    Updated: 2023/03/13 21:06:44 by rmarceau         ###   ########.fr        #
+#    Updated: 2023/03/14 17:49:21 by rmarceau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,12 @@ INC_DIR = include
 SRCS_DIR = src
 OBJS_DIR = objs
 
-SRCS = push_swap.c lst_utils.c utils.c error.c
+SRCS = push_swap.c \
+	lst_utils.c \
+	utils.c \
+	error.c \
+	finish.c \
+	push.c
 
 OBJS = $(addprefix ${OBJS_DIR}/, ${SRCS:%.c=%.o})
 

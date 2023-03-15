@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:38:12 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/13 21:19:46 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/14 19:48:09 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/include/libft.h"
 
+//Actions messages
 # define PUSH_A "pa"
 # define PUSH_B "pb"
 # define SWAP_A "sa"
@@ -28,6 +29,7 @@
 # define REV_ROTATE_STACK "rrr"
 # define ERROR "Error"
 
+//----------------------- Structure of the nodes -----------------------//
 typedef struct s_stack
 {
 	int	data;
@@ -35,12 +37,20 @@ typedef struct s_stack
 	struct s_stack *prev;
 } t_stack;
 
-t_stack	*fill_stack(int argc, char **argv);
+t_stack	*fill_stack(int argc, char **argv, int *size);
+t_stack	*lstnew(int data);
+void	delete_node(t_stack **node);
 void	lstadd_front(t_stack **node_first, t_stack **node_last, t_stack *new);
-int		*args_to_tab(int argc, char **argv);
-int		*quotes_to_tab(char **argv);
-int		is_repeat(int *tab);
-int		is_sorted(int *tab);
-size_t	count_arg(int *tab);
+int		*args_to_tab(int argc, char **argv, int **size);
+int		*quotes_to_tab(char **argv, int **size);
+int		is_repeat(int *tab, int size);
+int		is_sorted(int *tab, int size);
+int		count_arg(char **tab);
+
+void	pa(t_stack **stack_a, t_stack **stack_b, int *size_a, int *size_b);
+void	pb(t_stack **stack_a, t_stack **stack_b, int *size_a, int *size_b);
+
+void	end_program(t_stack *stack_a, t_stack *stack_b, int size_a, int size_b);
+void	free_2d(char **tab, int size);
 
 #endif

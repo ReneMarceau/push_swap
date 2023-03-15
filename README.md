@@ -35,5 +35,14 @@
 - [x] Vérifier si tous les arguments sont des nombres entier
 - [x] Vérifier qu'il n'y a aucun doublon
 - [x] Vérifier que les arguments ne soient pas déjà rangés si oui ne rien faire
-- [ ] À corriger: Programme ne rentre pas les informations après un 0 (À cause de count arg qui arrete de compter dès qu'il voit un 0)
+- [x] À corriger: Programme ne rentre pas les informations après un 0 (À cause de count arg qui arrête de compter dès qu'il voit un 0)
+- [x] Créer les fonctions pour libérer la mémoire
+- [x] Créer les fonctions pour push dans les différentes stacks
+- [ ] Créer les fonctions pour swap les stacks
+- [ ] Créer les fonctions pour rotate les stacks
+- [ ] Créer les fonctions pour reverse rotate les stacks
 
+
+### To check leaks
+
+leaks --atExit -- ./push_swap ""
