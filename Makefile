@@ -6,7 +6,7 @@
 #    By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 16:45:42 by rmarceau          #+#    #+#              #
-#    Updated: 2023/03/14 17:49:21 by rmarceau         ###   ########.fr        #
+#    Updated: 2023/03/14 20:09:24 by rmarceau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRCS = push_swap.c \
 	utils.c \
 	error.c \
 	finish.c \
-	push.c
+	push.c \
+	swap.c \
 
 OBJS = $(addprefix ${OBJS_DIR}/, ${SRCS:%.c=%.o})
 

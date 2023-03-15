@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:38:12 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/14 19:48:09 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:07:34 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ int		count_arg(char **tab);
 
 void	pa(t_stack **stack_a, t_stack **stack_b, int *size_a, int *size_b);
 void	pb(t_stack **stack_a, t_stack **stack_b, int *size_a, int *size_b);
+void	sa(t_stack **stack_a, int size);
+void	sb(t_stack **stack_b, int size);
+void	ss(t_stack **stack_a, t_stack **stack_b, int size);
 
 void	end_program(t_stack *stack_a, t_stack *stack_b, int size_a, int size_b);
 void	free_2d(char **tab, int size);
