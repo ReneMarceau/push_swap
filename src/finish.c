@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 15:38:50 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/14 18:10:20 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:30:37 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 //Free every node in the linked list
 static void	free_lst(t_stack *stack, int size)
 {
-	t_stack *tmp;
-	int	i;
+	t_stack	*tmp;
+	int		i;
 
 	i = 0;
 	if (stack)

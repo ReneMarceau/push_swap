@@ -6,17 +6,18 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:29:50 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/14 19:42:25 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:31:23 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+//Push the value on top of stack_b to stack_a
 void	pa(t_stack **stack_a, t_stack **stack_b, int *size_a, int *size_b)
 {
 	if (!*stack_b)
 		return ;
-	if(!*stack_a)
+	if (!*stack_a)
 		*stack_a = lstnew((*stack_b)->data);
 	else
 		lstadd_front(stack_a, &(*stack_a)->prev, lstnew((*stack_b)->data));
@@ -26,6 +27,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b, int *size_a, int *size_b)
 	ft_putendl_fd(PUSH_A, 1);
 }
 
+//Push the value on top of stack_a to stack_b
 void	pb(t_stack **stack_a, t_stack **stack_b, int *size_a, int *size_b)
 {
 	if (!*stack_a)

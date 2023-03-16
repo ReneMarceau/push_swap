@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 13:05:05 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/14 19:52:37 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:31:00 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,11 @@ void	lstadd_front(t_stack **node_first, t_stack **node_last, t_stack *new)
 	*node_last = new;
 }
 
+//Deletes a node from a linked list
 void	delete_node(t_stack **node)
 {
 	t_stack	*tmp;
-	
+
 	if (*node)
 	{
 		tmp = *node;
@@ -46,7 +47,7 @@ void	delete_node(t_stack **node)
 		if (!(tmp->data == tmp->next->data))
 			*node = tmp->next;
 		else
-			*node = NULL;		
+			*node = NULL;
 	}
 }
 

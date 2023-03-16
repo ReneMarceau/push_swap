@@ -6,32 +6,53 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:29:54 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/14 16:52:51 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/15 20:02:17 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	reverse_rotate(t_stack **stack)
+//Shifts down all elements of the linked list by 1
+static void	reverse_rotate(t_stack **stack, int size)
 {
-	
+	t_stack	*first_node;
+	t_stack	*last_node;
+
+	first_node = *stack;
+	last_node = (*stack)->prev;
+	if (size == 2)
+		swap(stack);
+	else
+	{
+		last_node->next = first_node;
+		*stack = last_node;
+	}
 }
 
-void	rra(t_stack **stack_a)
+//Shifts down all elements of stack_a by 1
+void	rra(t_stack **stack_a, int size)
 {
-	reverse_rotate(*stack_a);
+	if (size < 2)
+		return ;
+	reverse_rotate(stack_a, size);
 	ft_putendl_fd(REV_ROTATE_A, 1);
 }
 
-void	rrb(t_stack **stack_b)
+//Shifts down all elements of stack_b by 1
+void	rrb(t_stack **stack_b, int size)
 {
-	reverse_rotate(*stack_b);
+	if (size < 2)
+		return ;
+	reverse_rotate(stack_b, size);
 	ft_putendl_fd(REV_ROTATE_B, 1);
 }
 
-void	rrr(t_stack **stack_a, t_stack **stack_b)
+//Shifts down all elements of stack_a and stack_b by 1
+void	rrr(t_stack **stack_a, t_stack **stack_b, int size_a, int size_b)
 {
-	reverse_rotate(*stack_a);
-	reverse_rotate(*stack_b);
+	if (size_a < 2 || size_b < 2)
+		return ;
+	reverse_rotate(stack_a, size_a);
+	reverse_rotate(stack_b, size_a);
 	ft_putendl_fd(REV_ROTATE_STACK, 1);
 }
