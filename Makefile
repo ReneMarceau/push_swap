@@ -6,7 +6,7 @@
 #    By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 16:45:42 by rmarceau          #+#    #+#              #
-#    Updated: 2023/03/15 19:53:14 by rmarceau         ###   ########.fr        #
+#    Updated: 2023/03/27 18:19:29 by rmarceau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS = push_swap.c \
 	lst_utils.c utils.c \
 	error.c finish.c \
 	push.c swap.c rotate.c reverse_rotate.c \
+	sort_small.c \
 
 OBJS = $(addprefix ${OBJS_DIR}/, ${SRCS:%.c=%.o})
 

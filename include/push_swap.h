@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:38:12 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/15 20:13:07 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/27 18:18:20 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ void	rra(t_stack **stack_a, int size);
 void	rrb(t_stack **stack_b, int size);
 void	rrr(t_stack **stack_a, t_stack **stack_b, int size_a, int size_b);
 
-void	end_program(t_stack *stack_a, t_stack *stack_b, int size_a, int size_b);
-void	free_2d(char **tab, int size);
+void	end_success(t_stack *stack_a, t_stack *stack_b, int size_a, int size_b);
+void	end_failure(t_stack *stack_a, t_stack *stack_b, int size_a, int size_b);
+
+void	sort_three(t_stack **stack, int size);
 
 #endif

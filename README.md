@@ -42,7 +42,17 @@
 - [x] Créer les fonctions pour rotate les stacks
 - [x] Créer les fonctions pour reverse rotate les stacks
 
-
 ### To check leaks
 
 leaks --atExit -- ./push_swap ""
+valgrind --leak-check=full ./push_swap ""
+
+### Debug
+
+- gcc -g
+
+- lldb push_swap
+
+- b main
+
+- run

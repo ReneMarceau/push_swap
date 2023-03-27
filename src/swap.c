@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:29:58 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/15 19:52:33 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/27 17:41:34 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,22 @@
 //Swaps the first two values in a linked list
 void	swap(t_stack **stack)
 {
-	t_stack	*tmp;
+	t_stack	*first;
+	t_stack	*second;
+	t_stack *third;
+	t_stack	*last;
 
-	tmp = (*stack)->next;
-	(*stack)->next = tmp->next;
-	tmp->next = *stack;
-	*stack = tmp;
+	first = *stack;
+	second = (*stack)->next;
+	third = (*stack)->next->next;
+	last = (*stack)->prev;
+	first->next = second->next;
+	first->prev = second;
+	second->next = first;
+	second->prev = last;
+	third->prev = first;
+	last->next = second;
+	*stack = second;
 }
 
 //Swaps the first two values of stack_a

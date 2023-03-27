@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:29:54 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/15 20:02:17 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/27 17:33:39 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,22 @@
 //Shifts down all elements of the linked list by 1
 static void	reverse_rotate(t_stack **stack, int size)
 {
-	t_stack	*first_node;
-	t_stack	*last_node;
-
-	first_node = *stack;
-	last_node = (*stack)->prev;
+	t_stack	*first;
+	t_stack	*second_last;
+	t_stack	*last;
+	
 	if (size == 2)
 		swap(stack);
 	else
 	{
-		last_node->next = first_node;
-		*stack = last_node;
+		first = *stack;
+		second_last = (*stack)->prev->prev;
+		last = (*stack)->prev;
+		second_last->next = last;
+		last->prev = second_last;
+		last->next = first;
+		first->prev = last;
+		*stack = last;
 	}
 }
 
