@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 13:05:05 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/14 20:31:00 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/03/27 18:38:45 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,15 @@ t_stack	*fill_stack(int argc, char **argv, int *size)
 	else
 		tab = args_to_tab(argc, argv, &size);
 	if (!tab || !is_repeat(tab, *size))
+	{
+		free(tab);
 		return (NULL);
+	}
 	if (is_sorted(tab, *size))
+	{
+		free(tab);
 		exit(EXIT_SUCCESS);
+	}
 	len = *size;
 	while (--len >= 0)
 	{
@@ -75,7 +81,6 @@ t_stack	*fill_stack(int argc, char **argv, int *size)
 		else
 			lstadd_front(&stack, &stack->prev, lstnew(tab[len]));
 	}
-	//Je ne sais pas si c'est la meilleure façon de free le tableau
 	free(tab);
 	return (stack);
 }

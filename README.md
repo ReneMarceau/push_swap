@@ -28,8 +28,8 @@
 
 ## Choses à faire
 
-- [ ] Faire une recherche sur Insertion Sort
-- [ ] Faire une recherche sur Radix sort
+- [x] Faire une recherche sur Insertion Sort
+- [x] Faire une recherche sur Radix sort
 - [x] Parsing avec arguments entre "" et sans. Ex:"1 2 3 ..." et 1 2 3 ...
 - [x] Parsing même si trop d'espaces: "1 2          3" ou 1 2       3
 - [x] Vérifier si tous les arguments sont des nombres entier
