@@ -6,14 +6,14 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 13:05:05 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/27 18:38:45 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:56:46 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 //Creates a new doubly circular node
-t_stack	*lstnew(int data)
+t_stack	*lstnew(int data, int index, int chunk)
 {
 	t_stack	*new_node;
 
@@ -21,6 +21,8 @@ t_stack	*lstnew(int data)
 	if (!new_node)
 		return (NULL);
 	new_node->data = data;
+	new_node->index = index;
+	new_node->chunk = chunk;
 	new_node->next = new_node;
 	new_node->prev = new_node;
 	return (new_node);
@@ -65,7 +67,8 @@ t_stack	*fill_stack(int argc, char **argv, int *size)
 		tab = args_to_tab(argc, argv, &size);
 	if (!tab || !is_repeat(tab, *size))
 	{
-		free(tab);
+		if (tab)
+			free(tab);
 		return (NULL);
 	}
 	if (is_sorted(tab, *size))
@@ -77,10 +80,11 @@ t_stack	*fill_stack(int argc, char **argv, int *size)
 	while (--len >= 0)
 	{
 		if (!stack)
-			stack = lstnew(tab[len]);
+			stack = lstnew(tab[len], -1, -1);
 		else
-			lstadd_front(&stack, &stack->prev, lstnew(tab[len]));
+			lstadd_front(&stack, &stack->prev, lstnew(tab[len], -1, -1));
 	}
+	stack->prev->next = stack;
 	free(tab);
 	return (stack);
 }

@@ -6,14 +6,14 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:38:40 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/14 15:23:18 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/15 12:20:21 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 //Check if there are no repeated numbers inside the array
-int	is_repeat(int *tab, int size)
+bool	is_repeat(int *tab, int size)
 {
 	int	i;
 	int	j;
@@ -25,16 +25,16 @@ int	is_repeat(int *tab, int size)
 		while (j < size)
 		{
 			if (tab[i] == tab[j])
-				return (0);
+				return (false);
 			j++;
 		}
 		i++;
 	}
-	return (1);
+	return (true);
 }
 
 //Check if the array is already sorted
-int	is_sorted(int *tab, int size)
+bool	is_sorted(int *tab, int size)
 {
 	int	i;
 	int	j;
@@ -46,10 +46,10 @@ int	is_sorted(int *tab, int size)
 		while (j < size)
 		{
 			if (tab[i] > tab[j])
-				return (0);
+				return (false);
 			j++;
 		}
 		i++;
 	}
-	return (1);
+	return (true);
 }

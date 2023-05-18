@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 15:38:50 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/27 18:06:52 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/04/04 11:46:17 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	end_failure(t_stack *stack_a, t_stack *stack_b, int size_a, int size_b)
 	exit(EXIT_FAILURE);
 }
 
+//Terminate the program successfully
 void	end_success(t_stack *stack_a, t_stack *stack_b, int size_a, int size_b)
 {
 	if (stack_a)

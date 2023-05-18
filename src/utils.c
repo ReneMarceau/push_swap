@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:20:23 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/27 18:39:42 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/15 15:50:26 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ int	*quotes_to_tab(char **argv, int **size)
 	int		i;
 
 	tab_char = ft_split(argv[1], ' ');
-	if (!tab_char)
-		return (NULL);
 	tab = (int *)ft_calloc(count_arg(tab_char), sizeof(int));
-	if (!tab)
+	if (!tab && !tab_char)
 	{
 		free_2d(tab_char, count_arg(tab_char));
 		return (NULL);
@@ -73,10 +71,12 @@ int	*args_to_tab(int argc, char **argv, int **size)
 		if (ft_isnumber(argv[i]))
 			tab[j++] = ft_atoi(argv[i]);
 		else
-		{ 	free(tab);
+		{
+			free(tab);
 			return (NULL);
 		}
 	}
 	**size = argc - 1;
 	return (tab);
 }
+

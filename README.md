@@ -41,6 +41,8 @@
 - [x] Créer les fonctions pour swap les stacks
 - [x] Créer les fonctions pour rotate les stacks
 - [x] Créer les fonctions pour reverse rotate les stacks
+- [x] Sort pour 3 nombres
+- [x] Sort pour 5 nombres ou moins
 
 ### To check leaks
 
