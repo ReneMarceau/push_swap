@@ -43,6 +43,16 @@
 - [x] Créer les fonctions pour reverse rotate les stacks
 - [x] Sort pour 3 nombres
 - [x] Sort pour 5 nombres ou moins
+- [ ] Sort pour 100 nombres
+- [ ] Sort pour 500 nombres
+
+### Algorithm logique
+
+- Push dans la stack_b les nombres avec le plus petit chunk et augmenter de chunk à chaque fois
+- Toujours check avant de push si la valeur suivant est super et dans le meme chunk alors swap au lieu de ra ou rra
+- Chercher le chemin le plus rapide entre plusieurs ra ou rra pour chercher la valeur avec le chunk 0 ou chunk + 1 (priorité au chunk + 1 si la rapidité est la même)
+- La stack_b est remplies avec les chunks les plus petits entourés des chunks les plus grands
+- Push back toutes les valeurs en ordre décroissant
 
 ### To check leaks
 
