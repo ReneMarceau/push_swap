@@ -43,8 +43,8 @@
 - [x] Créer les fonctions pour reverse rotate les stacks
 - [x] Sort pour 3 nombres
 - [x] Sort pour 5 nombres ou moins
-- [ ] Sort pour 100 nombres
-- [ ] Sort pour 500 nombres
+- [x] Sort pour 100 nombres
+- [x] Sort pour 500 nombres
 
 ### Algorithm logique
 

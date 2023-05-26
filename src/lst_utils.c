@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 13:05:05 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/05/18 17:56:46 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/26 19:13:05 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,28 +55,30 @@ void	delete_node(t_stack **node)
 
 //Fill The stack_a with all the value provided by quotes or arguments.
 //But only if all the values are valids.
-t_stack	*fill_stack(int argc, char **argv, int *size)
+t_stack	*fill_stack(int argc, char **argv)
 {
 	t_stack	*stack;
 	int		*tab;
 	int		len;
+	int		size;
 
+	size = 0;
 	if (argc == 2)
 		tab = quotes_to_tab(argv, &size);
 	else
 		tab = args_to_tab(argc, argv, &size);
-	if (!tab || !is_repeat(tab, *size))
+	if (!tab || !is_repeat(tab, size))
 	{
 		if (tab)
 			free(tab);
 		return (NULL);
 	}
-	if (is_sorted(tab, *size))
+	if (is_sorted(tab, size))
 	{
 		free(tab);
 		exit(EXIT_SUCCESS);
 	}
-	len = *size;
+	len = size;
 	while (--len >= 0)
 	{
 		if (!stack)
@@ -85,6 +87,7 @@ t_stack	*fill_stack(int argc, char **argv, int *size)
 			lstadd_front(&stack, &stack->prev, lstnew(tab[len], -1, -1));
 	}
 	stack->prev->next = stack;
+	stack->size = size;
 	free(tab);
 	return (stack);
 }

@@ -6,14 +6,14 @@
 #    By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 16:45:42 by rmarceau          #+#    #+#              #
-#    Updated: 2023/05/15 15:57:38 by rmarceau         ###   ########.fr        #
+#    Updated: 2023/05/26 18:00:33 by rmarceau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -rf
 
 INC_DIR = include
@@ -21,10 +21,10 @@ SRCS_DIR = src
 OBJS_DIR = objs
 
 SRCS = push_swap.c indexing.c\
-	lst_utils.c utils.c \
+	lst_utils.c utils.c sort_utils.c \
 	error.c finish.c \
 	push.c swap.c rotate.c reverse_rotate.c \
-	sort_small.c \
+	sort_small.c sort_big.c \
 
 OBJS = $(addprefix ${OBJS_DIR}/, ${SRCS:%.c=%.o})
 
