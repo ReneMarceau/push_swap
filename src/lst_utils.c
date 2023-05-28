@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 13:05:05 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/05/26 19:13:05 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/28 18:29:11 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack	*lstnew(int data, int index, int chunk)
 	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (!new_node)
 		return (NULL);
-	new_node->data = data;
+	new_node->value = data;
 	new_node->index = index;
 	new_node->chunk = chunk;
 	new_node->next = new_node;
@@ -45,49 +45,38 @@ void	delete_node(t_stack **node)
 	if (*node)
 	{
 		tmp = *node;
-		free(*node);
-		if (!(tmp->data == tmp->next->data))
-			*node = tmp->next;
+		if (!(tmp->value == tmp->next->value))
+			*node = (*node)->next;
 		else
 			*node = NULL;
+		free(tmp);
 	}
 }
 
 //Fill The stack_a with all the value provided by quotes or arguments.
 //But only if all the values are valids.
-t_stack	*fill_stack(int argc, char **argv)
+void	fill_stack(t_container *data, int argc, char **argv)
 {
-	t_stack	*stack;
-	int		*tab;
 	int		len;
-	int		size;
 
-	size = 0;
 	if (argc == 2)
-		tab = quotes_to_tab(argv, &size);
+		data->tab = quotes_to_tab(argv, &data->size_a);
 	else
-		tab = args_to_tab(argc, argv, &size);
-	if (!tab || !is_repeat(tab, size))
+		data->tab = args_to_tab(argc, argv, &data->size_a);
+	if (!data->tab || !is_repeat(data->tab, data->size_a))
+		end_program(data, true);
+	if (is_sorted(data->tab, data->size_a))
 	{
-		if (tab)
-			free(tab);
-		return (NULL);
-	}
-	if (is_sorted(tab, size))
-	{
-		free(tab);
+		end_program(data, false);
 		exit(EXIT_SUCCESS);
 	}
-	len = size;
+	len = data->size_a;
 	while (--len >= 0)
 	{
-		if (!stack)
-			stack = lstnew(tab[len], -1, -1);
+		if (!data->stack_a)
+			data->stack_a = lstnew(data->tab[len], -1, -1);
 		else
-			lstadd_front(&stack, &stack->prev, lstnew(tab[len], -1, -1));
+			lstadd_front(&data->stack_a, &data->stack_a->prev, lstnew(data->tab[len], -1, -1));
 	}
-	stack->prev->next = stack;
-	stack->size = size;
-	free(tab);
-	return (stack);
+	data->stack_a->prev->next = data->stack_a;
 }

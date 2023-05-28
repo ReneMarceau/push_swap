@@ -6,14 +6,14 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:29:58 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/05/26 18:51:35 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/28 16:27:26 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 //Swaps the first two values in a linked list
-void	swap(t_stack **stack)
+void	swap(t_stack **stack, int size)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -26,13 +26,13 @@ void	swap(t_stack **stack)
 	last = (*stack)->prev;
 	first->prev = second;
 	second->next = first;
-	if ((*stack)->size <= 2)
+	if (size <= 2)
 	{
 		first->next = second;
 		second->prev = first;
 	}
 	else {
-		first->next = second->next;
+		first->next = third;
 		last->next = second;
 		second->prev = last;
 		third->prev = first;
@@ -41,31 +41,31 @@ void	swap(t_stack **stack)
 }
 
 //Swaps the first two values of stack_a
-void	sa(t_stack **stack_a)
+void	sa(t_container *data)
 {
-	if ((*stack_a)->size < 2)
+	if (data->size_a < 2)
 		return ;
-	swap(stack_a);
+	swap(&data->stack_a, data->size_a);
 	ft_putendl_fd(SWAP_A, 1);
 }
 
 //Swaps the first two values of stack_b
-void	sb(t_stack **stack_b)
+void	sb(t_container *data)
 {
-	if ((*stack_b)->size < 2)
+	if (data->size_b < 2)
 		return ;
-	swap(stack_b);
+	swap(&data->stack_b, data->size_b);
 	ft_putendl_fd(SWAP_B, 1);
 }
 
 //Swaps the first two values of stack_a and stack_b
-void	ss(t_stack **stack_a, t_stack **stack_b)
+void	ss(t_container *data)
 {
-	if ((*stack_a)->size <= 1 && (*stack_b)->size <= 1)
+	if (data->size_a <= 1 && data->size_b <= 1)
 		return ;
-	if ((*stack_a)->size > 1)
-		swap(stack_a);
-	if ((*stack_b)->size > 1)
-		swap(stack_b);
+	if (data->size_a > 1)
+		swap(&data->stack_a, data->size_a);
+	if (data->size_b > 1)
+		swap(&data->stack_b, data->size_b);
 	ft_putendl_fd(SWAP_STACK, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:29:50 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/05/26 18:59:45 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:50:59 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,35 +23,34 @@ static void	update_stacks(t_stack **my_stack, t_stack **other_stack)
 }
 
 //Push the value on top of stack_b to stack_a
-void	pa(t_stack **stack_a, t_stack **stack_b)
+void	pa(t_container *data)
 {
-	if (!stack_b)
+	if (!data->stack_b)
 		return ;
-	if (!stack_a)
-		*stack_a = lstnew((*stack_b)->data, (*stack_b)->index, (*stack_b)->chunk);
+	if (!data->stack_a)
+		data->stack_a = lstnew(data->stack_b->value, data->stack_b->index,
+			data->stack_b->chunk);
 	else
-		lstadd_front(stack_a, &(*stack_a)->prev, lstnew((*stack_b)->data, (*stack_b)->index, (*stack_b)->chunk));
-	delete_node(stack_b);
-	update_stacks(stack_a, stack_b);
-	(*stack_a)->size++;
-	(*stack_b)->size--;
+		lstadd_front(&data->stack_a, &data->stack_a->prev, lstnew(data->stack_b->value, data->stack_b->index, data->stack_b->chunk));
+	delete_node(&data->stack_b);
+	update_stacks(&data->stack_a, &data->stack_b);
+	data->size_a++;
+	data->size_b--;
 	ft_putendl_fd(PUSH_A, 1);
 }
 
 //Push the value on top of stack_a to stack_b
-void	pb(t_stack **stack_a, t_stack **stack_b)
+void	pb(t_container *data)
 {
-	if (!*stack_a)
+	if (!data->stack_a)
 		return ;
-	if (!*stack_b)
-		*stack_b = lstnew((*stack_a)->data, (*stack_a)->index, (*stack_a)->chunk);
+	if (!data->stack_b)
+		data->stack_b = lstnew(data->stack_a->value, data->stack_a->index, data->stack_a->chunk);
 	else
-		lstadd_front(stack_b, &(*stack_b)->prev, lstnew((*stack_a)->data, (*stack_a)->index, (*stack_a)->chunk));
-	delete_node(stack_a);
-	//update_stacks(stack_b, stack_a);
-	ft_printf("size_a: %d size_b: %d\n", (*stack_a)->size, (*stack_b)->size);
-	(*stack_a)->size--;
-	(*stack_b)->size++;
-	ft_printf("size_a: %d size_b: %d\n", (*stack_a)->size, (*stack_b)->size);
+		lstadd_front(&data->stack_b, &data->stack_b->prev, lstnew(data->stack_a->value, data->stack_a->index, data->stack_a->chunk));
+	delete_node(&data->stack_a);
+	update_stacks(&data->stack_b, &data->stack_a);
+	data->size_a--;
+	data->size_b++;
 	ft_putendl_fd(PUSH_B, 1);
 }
