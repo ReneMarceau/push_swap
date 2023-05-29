@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:14:16 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/05/29 02:09:24 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/29 17:35:32 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // Simulates the number of moves needed to move a value
 // from the top of the stack to the top
-int	simulate_move_top(t_stack *stack, int size, int val, bool is_chunk)
+static int	simulate_move_top(t_stack *stack, int size, int val, bool is_chunk)
 {
 	t_stack	*current;
 	int		move_top;
@@ -41,7 +41,8 @@ int	simulate_move_top(t_stack *stack, int size, int val, bool is_chunk)
 
 // Simulates the number of moves needed to move a value
 // from the top of the stack to the bottom
-int	simulate_move_bottom(t_stack *stack, int size, int val, bool is_chunk)
+static int	simulate_move_bottom(t_stack *stack, int size, int val,
+		bool is_chunk)
 {
 	t_stack	*current;
 	int		move_bottom;

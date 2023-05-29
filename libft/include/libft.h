@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:14:13 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/03/11 18:22:43 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/29 14:47:23 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_isnumber(char *str);
+int		ft_isspace(char c);
+int		ft_isnegative(int n);
 
 // ------------------------------ Length ------------------------------------
 size_t	ft_strlen(const char *s);
@@ -66,7 +68,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strdup(const char *s1);
 
 // ------------------------------ Ft_*to* -----------------------------------
-int		ft_atoi(const char *str);
+int		ft_atoi(char *str);
 char	*ft_itoa(int n);
 
 // ---------------------------- String manip ---------------------------------

@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:38:12 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/05/29 02:12:09 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/29 17:33:07 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ void				delete_node(t_stack **node);
 
 //----------------------- Parsing -----------------------//
 void				fill_stack(t_container *data, int argc, char **argv);
-int					*args_to_tab(int argc, char **argv, int *size);
-int					*quotes_to_tab(char **argv, int *size);
 void				set_index(t_stack *stack, int size);
 void				set_chunk(t_container *data, int chunk_size);
 int					number_per_chunk(int total_numbers, int num_chunks);
@@ -102,10 +100,6 @@ void				sort_big(t_container *data);
 
 //-------------------- Sorting Utils --------------------//
 int					best_path(t_stack *stack, int size, int value,
-						bool is_chunk);
-int					simulate_move_top(t_stack *stack, int size, int val,
-						bool is_chunk);
-int					simulate_move_bottom(t_stack *stack, int size, int val,
 						bool is_chunk);
 int					get_chunk_size(t_container *data, int chunk);
 

@@ -6,14 +6,28 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 01:36:14 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/05/29 02:02:29 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/29 15:44:18 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+static bool	try_insert_num(char **argv, int *tab, int i, int j)
+{
+	if (ft_isnumber(argv[i]) && (ft_strlen(argv[i]) < 11 || (argv[i][0] == '-'
+			&& ft_strlen(argv[i]) < 12)))
+	{
+		tab[j] = ft_atoi(argv[i]);
+		if ((argv[i][0] == '-' && !ft_isnegative(tab[j]))
+			|| (ft_isdigit(argv[i][0]) && ft_isnegative(tab[j])))
+			return (false);
+		return (true);
+	}
+	return (false);
+}
+
 // Fill an array of int the values passed to the program is a string
-int	*quotes_to_tab(char **argv, int *size)
+static int	*quotes_to_tab(char **argv, int *size)
 {
 	char	**tab_char;
 	int		*tab;
@@ -25,9 +39,7 @@ int	*quotes_to_tab(char **argv, int *size)
 	i = -1;
 	while (tab_char[++i])
 	{
-		if (ft_isnumber(tab_char[i]) && ft_strlen(tab_char[i]) < 10)
-			tab[i] = ft_atoi(tab_char[i]);
-		else
+		if (!try_insert_num(tab_char, tab, i, i))
 		{
 			free(tab);
 			free_2d(tab_char, *size);
@@ -39,7 +51,7 @@ int	*quotes_to_tab(char **argv, int *size)
 }
 
 // Fill an array of int the values passed to the program are arguments
-int	*args_to_tab(int argc, char **argv, int *size)
+static int	*args_to_tab(int argc, char **argv, int *size)
 {
 	int	*tab;
 	int	i;
@@ -53,9 +65,7 @@ int	*args_to_tab(int argc, char **argv, int *size)
 	j = 0;
 	while (i++ < *size)
 	{
-		if (ft_isnumber(argv[i]) && ft_strlen(argv[i]) < 12)
-			tab[j++] = ft_atoi(argv[i]);
-		else
+		if (!try_insert_num(argv, tab, i, j++))
 		{
 			free(tab);
 			return (NULL);

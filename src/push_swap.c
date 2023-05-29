@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:40:56 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/05/29 02:11:59 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/29 15:44:00 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 
 // Initialize the data structure
-t_container	*init_data(void)
+static t_container	*init_data(void)
 {
 	t_container	*data;
 
