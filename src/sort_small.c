@@ -6,12 +6,13 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:07:47 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/05/28 15:39:48 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/29 01:57:47 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+// Finds the index of a value in a stack
 static int	find_index(t_stack *stack, int index_searched)
 {
 	int	index;
@@ -25,7 +26,7 @@ static int	find_index(t_stack *stack, int index_searched)
 	return (index);
 }
 
-//Sorts a stack of size 3
+// Sorts a stack of size 3
 void	sort_three(t_container *data)
 {
 	int	first;
@@ -53,6 +54,7 @@ void	sort_three(t_container *data)
 		rra(data);
 }
 
+// Sorts a stack of size 5 or 4
 void	sort_five(t_container *data)
 {
 	int	smallest_index;

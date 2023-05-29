@@ -6,13 +6,13 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 16:29:58 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/05/28 16:27:26 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/29 01:53:21 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-//Swaps the first two values in a linked list
+// Swaps the first two values in a linked list
 void	swap(t_stack **stack, int size)
 {
 	t_stack	*first;
@@ -31,7 +31,8 @@ void	swap(t_stack **stack, int size)
 		first->next = second;
 		second->prev = first;
 	}
-	else {
+	else
+	{
 		first->next = third;
 		last->next = second;
 		second->prev = last;
@@ -40,7 +41,7 @@ void	swap(t_stack **stack, int size)
 	*stack = second;
 }
 
-//Swaps the first two values of stack_a
+// Swaps the first two values of stack_a
 void	sa(t_container *data)
 {
 	if (data->size_a < 2)
@@ -49,7 +50,7 @@ void	sa(t_container *data)
 	ft_putendl_fd(SWAP_A, 1);
 }
 
-//Swaps the first two values of stack_b
+// Swaps the first two values of stack_b
 void	sb(t_container *data)
 {
 	if (data->size_b < 2)
@@ -58,7 +59,7 @@ void	sb(t_container *data)
 	ft_putendl_fd(SWAP_B, 1);
 }
 
-//Swaps the first two values of stack_a and stack_b
+// Swaps the first two values of stack_a and stack_b
 void	ss(t_container *data)
 {
 	if (data->size_a <= 1 && data->size_b <= 1)

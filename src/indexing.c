@@ -6,7 +6,7 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:11:35 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/05/28 15:35:13 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/29 02:11:19 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 static int	find_smallest(t_stack *stack, int size)
 {
 	t_stack	*current;
-	int	min;
-	int	i;
+	int		min;
+	int		i;
 
 	current = stack;
 	min = INT_MAX;
@@ -31,10 +31,10 @@ static int	find_smallest(t_stack *stack, int size)
 	return (min);
 }
 
-// Sets the index value for each node in the stack based on their value and order
-void set_index(t_stack *stack, int size)
+// Sets the index value for each node in the stack based on their value
+void	set_index(t_stack *stack, int size)
 {
-	t_stack *current;
+	t_stack	*current;
 	size_t	index;
 	int		min;
 	int		i;
@@ -57,21 +57,22 @@ void set_index(t_stack *stack, int size)
 }
 
 // Sets the chunk value for each node in the stack based on the chunk size
-void    set_chunk(t_container *data, int chunk_size)
+void	set_chunk(t_container *data, int chunk_size)
 {
-	t_stack *current;
-    int i;
+	t_stack	*current;
+	int		i;
 
 	current = data->stack_a;
-    i = 0;
-    while (i++ < data->size_a)
+	i = 0;
+	while (i++ < data->size_a)
 	{
 		current->chunk = (current->index / chunk_size);
 		current = current->next;
 	}
 }
 
-int	numberPerChunk(int total_numbers, int num_chunks)
+// Calculates the number of values each chunk can hold
+int	number_per_chunk(int total_numbers, int num_chunks)
 {
 	int	numbers_per_chunk;
 	int	remaining_numbers;

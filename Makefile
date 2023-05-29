@@ -6,7 +6,7 @@
 #    By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 16:45:42 by rmarceau          #+#    #+#              #
-#    Updated: 2023/05/27 15:09:36 by rmarceau         ###   ########.fr        #
+#    Updated: 2023/05/29 01:49:46 by rmarceau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ INC_DIR = include
 SRCS_DIR = src
 OBJS_DIR = objs
 
-SRCS = push_swap.c indexing.c\
-	lst_utils.c utils.c sort_utils.c \
-	error.c finish.c \
+SRCS = push_swap.c parsing.c indexing.c\
+	lst_utils.c sort_utils.c utils.c \
+	finish.c \
 	push.c swap.c rotate.c reverse_rotate.c \
 	sort_small.c sort_big.c \
 

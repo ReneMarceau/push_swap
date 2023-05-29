@@ -6,13 +6,21 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:20:23 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/05/28 15:42:52 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/29 01:53:00 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-//Counts the number of arguments inside a vector of numbers
+// Returns the absolute value of a number
+int	abs(int n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
+}
+
+// Counts the number of arguments inside a vector of numbers
 int	count_arg(char **tab)
 {
 	int	i;
@@ -23,61 +31,63 @@ int	count_arg(char **tab)
 	return (i);
 }
 
-//Fill an array of int the values passed to the program is a string
-int	*quotes_to_tab(char **argv, int *size)
+// Check if there are no repeated numbers inside the array
+bool	is_repeat(int *tab, int size)
 {
-	char	**tab_char;
-	int		*tab;
-	int		i;
+	int	i;
+	int	j;
 
-	tab_char = ft_split(argv[1], ' ');
-	*size = count_arg(tab_char);
-	tab = (int *)ft_calloc(*size, sizeof(int));
-	i = -1;
-	while (tab_char[++i])
-	{
-		if (ft_isnumber(tab_char[i]) && ft_strlen(tab_char[i]) < 12)
-			tab[i] = ft_atoi(tab_char[i]);
-		else
-		{
-			free(tab);
-			free_2d(tab_char, *size);
-			return (NULL);
-		}
-	}
-	free_2d(tab_char, *size);
-	return (tab);
-}
-
-//Fill an array of int the values passed to the program are arguments
-int	*args_to_tab(int argc, char **argv, int *size)
-{
-	int		*tab;
-	int		i;
-	int		j;
-
-	*size = argc - 1;
-	tab = (int *)ft_calloc(*size, sizeof(int));
-	if (!tab)
-		return (NULL);
 	i = 0;
-	j = 0;
-	while (i++ < *size)
+	while (i < size)
 	{
-		if (ft_isnumber(argv[i]) && ft_strlen(argv[i]) < 12)
-			tab[j++] = ft_atoi(argv[i]);
-		else
+		j = i + 1;
+		while (j < size)
 		{
-			free(tab);
-			return (NULL);
+			if (tab[i] == tab[j])
+				return (false);
+			j++;
 		}
+		i++;
 	}
-	return (tab);
+	return (true);
 }
 
-int	abs(int n)
+// Check if the array is already sorted
+bool	is_sorted(int *tab, int size)
 {
-	if (n < 0)
-		return (-n);
-	return (n);
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (tab[i] > tab[j])
+				return (false);
+			j++;
+		}
+		i++;
+	}
+	return (true);
+}
+
+// Calculates the size of a specific chunk
+int	get_chunk_size(t_container *data, int chunk)
+{
+	t_stack	*current;
+	int		chunk_size;
+	int		i;
+
+	current = data->stack_a;
+	chunk_size = 0;
+	i = 0;
+	while (i++ < data->size_a)
+	{
+		if (current->chunk == chunk)
+			chunk_size++;
+		current = current->next;
+	}
+	return (chunk_size);
 }

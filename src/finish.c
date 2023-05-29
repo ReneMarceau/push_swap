@@ -6,13 +6,13 @@
 /*   By: rmarceau <rmarceau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 15:38:50 by rmarceau          #+#    #+#             */
-/*   Updated: 2023/05/28 16:12:36 by rmarceau         ###   ########.fr       */
+/*   Updated: 2023/05/29 02:04:23 by rmarceau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-//Free 2d array of char
+// Free 2d array of char
 void	free_2d(char **tab, int size)
 {
 	int	i;
@@ -23,7 +23,7 @@ void	free_2d(char **tab, int size)
 	free(tab);
 }
 
-//Free every node in the linked list
+// Free every node in the linked list
 static void	free_lst(t_stack *stack, int size)
 {
 	t_stack	*tmp;
@@ -41,7 +41,7 @@ static void	free_lst(t_stack *stack, int size)
 	}
 }
 
-//Terminate the program with an error message if needed
+// Terminate the program with an error message if needed
 void	end_program(t_container *data, bool error)
 {
 	if (data->stack_a)
@@ -57,4 +57,3 @@ void	end_program(t_container *data, bool error)
 		exit(EXIT_FAILURE);
 	}
 }
-

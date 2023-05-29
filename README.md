@@ -45,7 +45,7 @@
 - [x] Sort pour 5 nombres ou moins
 - [x] Sort pour 100 nombres
 - [x] Sort pour 500 nombres
-- [ ] Régler invalid read of size 8
+- [x] Régler invalid read of size 8
 
 ### Algorithm logique
 
