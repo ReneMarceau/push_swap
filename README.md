@@ -1,71 +1,104 @@
-# Push_swap
+# push_swap - 42 School Project
 
-## Useful links
+## About
 
-- [Subject PDF](https://cdn.intra.42.fr/pdf/pdf/66937/fr.subject.pdf)
-- [Push_Swap by Jamie Dawson](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
-- [Pushswap Epitech Project](https://sharkigamers.github.io/pushswap_epitech_project/)
-- [Push_Swap by Yigit Ogun](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
-- [Push_Swap by Leo Fu](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e)
-- [Push_Swap by AdrianWR](https://github.com/AdrianWR/push_swap)
-- [Push_Swap by anyaschukin](https://github.com/anyaschukin/Push_Swap)
-- [Stackoverflow](https://stackoverflow.com/questions/75100698/what-is-the-most-efficient-way-to-sort-a-stack-using-a-limited-set-of-instructio)
-- [Youtube video](https://www.youtube.com/watch?v=7KW59UO55TQ)
+* This project will make you sort data on a stack, with a limited set of instructions, using the lowest possible number of actions.
 
-## Étapes
+* The Push_swap project is a very simple and highly effective algorithm project: data will need to be sorted.  
+You have at your disposal a set of int values, 2 stacks and a set of instructions to manipulate both stacks.  
 
-- Parsing de l'entrée standard et mettre les nombres dans la Stack A (doubly-circular linked list)
+* The goal ?  
+Write a program in C called push_swap which calculates and displays on the standard output the instructions, that sort the integers received as arguments.
 
-- Comprendre comment accéder aux valeurs dans la "doubly-circular linked list"
+* The learning objectives of this project are rigor, use of C and use of basic algorithms. Especially looking at the complexity of these basic algorithms.
 
-- Check si il n'y a aucune erreur détecter dans la Stack A
+* Within your mandatory part you are allowed to use the following functions:  
+malloc, free, exit, write, read
 
-- Check si la Stack A est déja rangée. Si oui le programme s'arrête sans rien faire
+## Operations
 
-- Faire les différents algorithmes pour la stack A < 6
-- Faire l'algorithme pour la Stack A < 100
-- Faire l'algorithme pour la Stack A < 500
+* The goal is to sort in ascending order numbers into stack a.  
+* To do this you have the following operations at your disposal:
 
-## Choses à faire
+| Operations | Explanation |
+| :--- | :--- |
+| sa | swap a - swap the first 2 elements at the top of stack a |
+| sb | swap b - swap the first 2 elements at the top of stack b |
+| ss | sa and sb at the same time |
+| pa | push a - take the first element at the top of b and put it at the top of a |
+| pb | push b - take the first element at the top of a and put it at the top of b |
+| ra | rotate a - shift up all elements of stack a by 1. The first element becomes the last one |
+| rb | rotate b - shift up all elements of stack b by 1. The first element becomes the last one |
+| rr | ra and rb at the same time |
+| rra | reverse rotate a - shift down all elements of stack a by 1. The last element becomes the first one |
+| rrb | reverse rotate b - shift down all elements of stack b by 1. The last element becomes the first one |
+| rrr | rra and rrb at the same time |
 
-- [x] Faire une recherche sur Insertion Sort
-- [x] Faire une recherche sur Radix sort
-- [x] Parsing avec arguments entre "" et sans. Ex:"1 2 3 ..." et 1 2 3 ...
-- [x] Parsing même si trop d'espaces: "1 2          3" ou 1 2       3
-- [x] Vérifier si tous les arguments sont des nombres entier
-- [x] Vérifier qu'il n'y a aucun doublon
-- [x] Vérifier que les arguments ne soient pas déjà rangés si oui ne rien faire
-- [x] À corriger: Programme ne rentre pas les informations après un 0 (À cause de count arg qui arrête de compter dès qu'il voit un 0)
-- [x] Créer les fonctions pour libérer la mémoire
-- [x] Créer les fonctions pour push dans les différentes stacks
-- [x] Créer les fonctions pour swap les stacks
-- [x] Créer les fonctions pour rotate les stacks
-- [x] Créer les fonctions pour reverse rotate les stacks
-- [x] Sort pour 3 nombres
-- [x] Sort pour 5 nombres ou moins
-- [x] Sort pour 100 nombres
-- [x] Sort pour 500 nombres
-- [x] Régler invalid read of size 8
+## Approach for Algorithm
 
-### Algorithm logique
+1. I go through stack A looking for a sequenece of numbers that is already in ascending order.
+2. I keep this sequenece of numbers in stack A and push all other elements to stack B.
+3. Before performing any further Operations, i calculate for every single element in Stack B how many operations it would need to get to it's correct position in stack A.
+4. I choose the element on stack B, that needs the fewest amount of Operations. Then I perform the Operations that are required to get it to the correct position in stack A.
+5. I repeat step 3 and step 4 until stack A is sorted and stack B is empty.
+6. Now i only need to align stack A, which means rotating it until the smallest element is at the top.
 
-- Push dans la stack_b les nombres avec le plus petit chunk et augmenter de chunk à chaque fois
-- Toujours check avant de push si la valeur suivant est super et dans le meme chunk alors swap au lieu de ra ou rra
-- Chercher le chemin le plus rapide entre plusieurs ra ou rra pour chercher la valeur avec le chunk 0 ou chunk + 1 (priorité au chunk + 1 si la rapidité est la même)
-- La stack_b est remplies avec les chunks les plus petits entourés des chunks les plus grands
-- Push back toutes les valeurs en ordre décroissant
+## Grading
 
-### To check leaks
+* Sorting 100 numbers:
+* I achieve an average of 600 Operations
+  
+| Operations | Points |
+| :---: | :---: |
+| less then 700 | 5 |
+| less then 900 | 4 |
+| less then 1100 | 3 |
+| less then 1300 | 2 |
+| less then 1500 | 1 |
 
-leaks --atExit -- ./push_swap ""
-valgrind --leak-check=full ./push_swap ""
+* Sorting 500 numbers: 
+* I achieve an average of 5400 Operations 
 
-### Debug
+| Operations | Points |
+| :---: | :---: |
+| less then 5500 | 5 |
+| less then 7000 | 4 |
+| less then 8500 | 3 |
+| less then 10000 | 2 |
+| less then 11500 | 1 |
 
-- gcc -g
+## Bonus
 
-- lldb push_swap
+* The Bonus exercise was to write a Program called 'checker' that can read the Operations from stdin and perform them on a stack of numbers.
+* checker will return 'KO' when the given Operations will sort the numbers in ascending order. Otherwise it returns 'KO'.
+* In case of an error (f.ex. Operations doesn't exist) it returns 'Error'.
 
-- b main
+## How to use
 
-- run
+Clone the repository:
+```bash
+https://github.com/42akurz/42_push_swap.git
+```
+Go to the repository and run make
+```bash
+make
+```
+run make bonus to compile checker files
+```bash
+make bonus
+```
+Call the executable together with a set of numbers seperated by a space
+```bash
+./push_swap 10 7 8 2 3 6 1 4 9 5
+```
+To run the checker on push swap, use the pipe operator
+```bash
+ARG="10 7 8 2 3 6 1 4 9 5"; ./push_swap $ARG | ./CHECKER $ARG
+```
+Use clean to delete all object files, fclean to remove all object files and executable and re to recompile the program
+```bash
+make clean / make fclean / make re
+```
+
+
+
